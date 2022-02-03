@@ -1,6 +1,6 @@
-# MONOREPO PODSEC
+# TEINFORMATECH MONOREPO
 
-Neste repositório, conterá todo os softwares necessários para rodar o projeto "PodSec (temp)".  
+Neste repositório, conterá todo os softwares necessários para rodar o projeto "TeInforma Tech".  
   
 Documentações gerais ficam na pasta: `docs/`  
   
