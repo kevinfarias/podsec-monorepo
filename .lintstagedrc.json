@@ -1,0 +1,8 @@
+{
+    "*.ts": [
+        "eslint './frontend/src/**' --fix"
+    ],
+    "*.js": [
+        "eslint './backend/src/**' --fix"
+    ]
+}
