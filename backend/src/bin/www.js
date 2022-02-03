@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 import app from '../app';
 import debug from 'debug';
+
 debug('myapp:server');
 import http from 'http';
 
 const port = normalizePort(process.env.PORT || '3000');
+
 app.set('port', port);
 
 const server = http.createServer(app);
@@ -21,7 +23,7 @@ function normalizePort(val) {
         return val;
     }
     
-    if (port >= 0) {
+    if (port) {
         return port;
     }
     
@@ -33,28 +35,29 @@ function onError(error) {
         throw error;
     }
     
-    const bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+    const bind = typeof port === 'string' ?
+        `Pipe ${  port}` :
+        `Port ${  port}`;
     
     switch (error.code) {
-        case 'EACCES':
-            console.error(bind + ' requires elevated privileges');
-            process.exit(1);
+    case 'EACCES':
+        console.error(`${bind  } requires elevated privileges`);
+        process.exit(true);
         break;
-        case 'EADDRINUSE':
-            console.error(bind + ' is already in use');
-            process.exit(1);
+    case 'EADDRINUSE':
+        console.error(`${bind  } is already in use`);
+        process.exit(true);
         break;
-        default:
-            throw error;
+    default:
+        throw error;
     }
 }
 
 function onListening() {
     const addr = server.address();
-    const bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-    debug('Listening on ' + bind);
+    const bind = typeof addr === 'string' ?
+        `pipe ${  addr}` :
+        `port ${  addr.port}`;
+
+    debug(`Listening on ${  bind}`);
 }
