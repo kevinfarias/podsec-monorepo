@@ -4,6 +4,7 @@ const config = {
         "password": process.env.DB_PASS,
         "database": "development",
         "host": process.env.DB_HOST,
+        "port": process.env.DB_PORT,
         "dialect": "postgres"
     },
     "test": {
@@ -11,6 +12,7 @@ const config = {
         "password": process.env.DB_PASS,
         "database": "test",
         "host": process.env.DB_HOST,
+        "port": process.env.DB_PORT,
         "dialect": "mysql"
     },
     "production": {
@@ -18,6 +20,7 @@ const config = {
         "password": process.env.DB_PASS,
         "database": "production",
         "host": process.env.DB_HOST,
+        "port": process.env.DB_PORT,
         "dialect": "mysql"
     }
 }

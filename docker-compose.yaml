@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:14
+    volumes:
+      - /private/var/lib/postgresql:/var/lib/postgresql
+    ports:
+      - "5435:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: podsec
+    networks: 
+      - app-network
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend
+    entrypoint: dockerize -wait tcp://db:5432 -timeout 20s docker-entrypoint.sh
+    command: npm run start
+    networks: 
+      - app-network
+    ports:
+      - "3000:3000"
+    volumes: 
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
+    tty: true
+    depends_on: 
+      - db
+
+networks: 
+  app-network:
+    driver: bridge
