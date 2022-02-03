@@ -1,6 +1,12 @@
 {
     "scripts": {
-        "lint": "eslint src/**/*.js src/**/*.jsx"
+        "lint": "eslint src/**/*.js src/**/*.jsx",
+        "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run pretest"
+        }
     },
     "devDependencies": {
         "eslint": "^8.8.0",
@@ -14,6 +20,7 @@
         "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-react": "^7.28.0",
         "eslint-plugin-unused-imports": "^2.0.0",
+        "husky": "^7.0.4",
         "jest": "^27.4.7",
         "prettier": "^2.5.1"
     }
