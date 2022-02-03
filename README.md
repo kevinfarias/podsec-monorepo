@@ -1,4 +1,4 @@
-# TEINFORMATECH MONOREPO
+# TeInformaTech MONOREPO
 
 Neste repositório, conterá todo os softwares necessários para rodar o projeto "TeInforma Tech".  
   
