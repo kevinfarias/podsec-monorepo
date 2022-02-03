@@ -23,7 +23,7 @@ function normalizePort(val) {
         return val;
     }
     
-    if (port >= 0) {
+    if (port) {
         return port;
     }
     
@@ -42,11 +42,11 @@ function onError(error) {
     switch (error.code) {
     case 'EACCES':
         console.error(`${bind  } requires elevated privileges`);
-        process.exit(1);
+        process.exit(true);
         break;
     case 'EADDRINUSE':
         console.error(`${bind  } is already in use`);
-        process.exit(1);
+        process.exit(true);
         break;
     default:
         throw error;
