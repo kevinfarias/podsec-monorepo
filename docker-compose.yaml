@@ -10,7 +10,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin
-      POSTGRES_DB: podsec
+      POSTGRES_DB: teinformatech
     networks: 
       - app-network
   backend:
