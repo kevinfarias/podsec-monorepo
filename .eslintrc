@@ -39,14 +39,14 @@
         "semi": ["error", "always"],
         "no-var": "error",
         "max-len": ["error", {
-            "code": 80,
+            "code": 100,
             "tabWidth": 4
         }],
         "operator-linebreak": ["error", "after"],
         "lines-between-class-members": ["error", "always"],
         "object-property-newline": "error",
         "object-shorthand": ["error", "always", { "avoidQuotes": true }],
-        "no-magic-numbers": "error",
+        "no-magic-numbers": "warn",
         "prefer-const": "error",
         "no-const-assign": "error",
         "arrow-body-style": "error",
@@ -57,7 +57,7 @@
         "max-lines-per-function": [
             "warn",
             {
-                "max": 120,
+                "max": 100,
                 "skipBlankLines": true,
                 "skipComments": true
             }
