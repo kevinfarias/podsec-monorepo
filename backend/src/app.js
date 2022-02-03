@@ -6,6 +6,7 @@ import 'dotenv/config';
 import indexRouter from  './routes/index';
 
 const app = express();
+var a = 'aee';
 
 app.use(logger('dev'));
 app.use(express.json());
