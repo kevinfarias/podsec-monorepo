@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 const config = {
     'development': {
         'username': process.env.DB_USER,
@@ -13,7 +15,7 @@ const config = {
         'database': 'test',
         'host': process.env.DB_HOST,
         'port': process.env.DB_PORT,
-        'dialect': 'mysql'
+        'dialect': 'postgres'
     },
     'production': {
         'username': process.env.DB_USER,
@@ -21,7 +23,7 @@ const config = {
         'database': 'production',
         'host': process.env.DB_HOST,
         'port': process.env.DB_PORT,
-        'dialect': 'mysql'
+        'dialect': 'postgres'
     }
 };
 
