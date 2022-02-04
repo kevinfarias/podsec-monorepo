@@ -43,7 +43,14 @@ Usaremos o seguinte padrão:
 5. Se a pull request for recusada, corrija os apontamentos e suba novamente usando o passo 3, avisando o revisor que uma nova versão foi subida.
 6. Se a pull request for aceita, feche sua branch usando o comando:  `git checkout development && git branch -d feature/meu-desenvolvimento-de-funcionalidade && git push origin --delete feature/meu-desenvolvimento-de-funcionalidade` (deleta a branch localmente e remotamente - pois já foi mergada na development)
 
-## 6. Extra: Git alias recomendado
+## 6. Fluxo de um pull request
+1. O revisor ou demais colegas que se interessem de corrigir o código do colega, devem baixar a branch localmente, e realizar comentários no código nos pontos que devem ser melhorados  
+2. Após, commite a branch e adicione um comentario no pull request para avisar de suas sugestões de melhoria
+3. Criador da pull request deve baixar novamente a branch e implementar as sugestões até que os comentários fiquem limpos
+4. A branch deve ser reenviada e adicionado comentario para avisar o revisor das mudanças implementadas (de preferência marque-o nos comentários)
+5. O processo poderá ser repetido até o pull request ser aceito
+
+## 7. Extra: Git alias recomendado
 1. Editar o arquivo .gitconfig com o comando: `nano ~/.gitconfig`
 2. Colar o seguinte conteúdo:
 ```
