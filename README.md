@@ -14,8 +14,7 @@ Código frontend fica na pasta: `frontend/`
   
 *Obs: todos comandos abaixos devem ser rodados nesta pasta raiz*
 1. Rodar o comando: `npm run install` (instala as dependências do monorepo)
-2. Rodar o comando: `npm run prepare` (instalar o husky localmente)
-3. Com o Docker instalado, o projeto deve ser rodado com o seguinte comando: `docker-compose up --build`
+2. Com o Docker instalado, o projeto deve ser rodado com o seguinte comando: `docker-compose up --build`
 
 
 ## 3. Implementando Code Pattern com ESLint && Prettier

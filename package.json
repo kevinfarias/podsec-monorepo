@@ -2,7 +2,9 @@
     "scripts": {
         "lint": "eslint ./backend/src/**/*.js",
         "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "backend:test": "echo \"No backend test available\"",
+        "frontend:test": "echo \"No frontend test available\""
     },
     "devDependencies": {
         "eslint": "^8.8.0",
