@@ -1,9 +1,12 @@
 {
-  "name": "myapp",
+  "name": "teinformatech-backend",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon -L --exec 'node --experimental-specifier-resolution=node' ./src/bin/www"
+    "db:create": "npx sequelize db:create || exit 0",
+    "db:migrate": "npx sequelize db:migrate",
+    "db:up": "npm run db:create && npm run db:migrate",
+    "start": "npm run db:up && nodemon -L --exec 'node --experimental-specifier-resolution=node' ./src/bin/www"
   },
   "type": "module",
   "dependencies": {
