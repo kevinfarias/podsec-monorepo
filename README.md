@@ -41,7 +41,7 @@ Usaremos o seguinte padrão:
 3. Após finalizar o desenvolvimento, commite usando os comandos padrão git:  `git add . && git commit -m "finalizando desenvolvimento da funcionalidade x" && git push`
 4. Acesse o github e crie um novo pull request, marcando Kevin ou Tassio como revisores.
 5. Se a pull request for recusada, corrija os apontamentos e suba novamente usando o passo 3, avisando o revisor que uma nova versão foi subida.
-6. Se a pull request for aceita, finalize sua branch usando o comando:  `git flow feature finish meu-desenvolvimento-de-funcionalidade && git push`
+6. Se a pull request for aceita, feche sua branch usando o comando:  `git checkout development && git branch -d feature/meu-desenvolvimento-de-funcionalidade && git push origin --delete feature/meu-desenvolvimento-de-funcionalidade` (deleta a branch localmente e remotamente - pois já foi mergada na development)
 
 ## 6. Extra: Git alias recomendado
 1. Editar o arquivo .gitconfig com o comando: `nano ~/.gitconfig`
