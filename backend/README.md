@@ -1,26 +1,25 @@
 # BACKEND TeInforma Tech
 
-## Fluxo criação migrations
+## 1. Fluxo criação migrations
 1. Criar migration: `npx sequelize migration:create --name nome-da-migration`
-    - Exemplo de código de migration:
+2. Exemplo de código de migration:
 ```
-'use strict';
-
 module.exports = {
+    async up (queryInterface) {
+        await queryInterface.sequelize.query(`CREATE TABLE teste (
+        id serial not null primary key,
+        name varchar(100)
+     )`);
+    },
 
-  up: (queryInterface, Sequelize, migration) => {
-     return queryInterface.sequelize.query('CREATE TABLE pietra (...)');
-  },
-
-  down: (queryInterface, Sequelize) => {
-     return queryInterface.sequelize.query('DROP TABLE pietra;');
-  }
-
+    async down (queryInterface) {
+        await queryInterface.sequelize.query('DROP TABLE teste;');
+    }
 };
 ```
-2. Rodar migration (no nivel raiz do monorepo): `docker-compose exec backend npm run db:migrate`
+3. Rodar migration (no nivel raiz do monorepo): `docker-compose exec backend npm run db:migrate`
 
-## Fluxo criação testes unitários/integração:
+## 2. Fluxo criação testes unitários/integração:
 1. Para cada arquivo criado, na mesma estrutura deve existir uma pasta chamada `tests`
 2. O arquivo deve se chamar `{nomeDoArquivo}.test.js`. Exemplos:
     - `src/controllers/indexController.js` -> `src/controllers/tests/indexController.test.js`
