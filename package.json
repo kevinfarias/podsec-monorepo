@@ -2,7 +2,7 @@
     "scripts": {
         "lint": "eslint ./backend/src/**/*.js",
         "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix",
-        "prepare": "husky install",
+        "prepare": "husky install || echo 0",
         "backend:test": "cd ./backend && npm run test",
         "frontend:test": "echo \"No frontend test available\""
     },
