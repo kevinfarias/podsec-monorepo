@@ -1,9 +1,9 @@
 import { StatusCodes } from 'http-status-codes';
-import NewsletterModelos from '../models/NewsletterModelos';
+import db from '../models/index.js';
 
 /// implementar crud
-export const get = (_req, res) => {
-    const dados = NewsletterModelos.findAll();
+export const get = async (_req, res) => {
+    const dados = await db.NewsletterModelos.findAll();
 
     // TODO: implementar paginacao
 
