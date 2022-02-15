@@ -30,30 +30,57 @@
     ],
     "settings": {
         "react": {
-          "version": "16" 
+            "version": "16"
         }
     },
     "globals": {},
     "rules": {
-        "quotes": ["error", "single"],
-        "semi": ["error", "always"],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
         "no-var": "error",
-        "max-len": ["error", {
-            "code": 100,
-            "tabWidth": 4
-        }],
-        "operator-linebreak": ["error", "after"],
-        "lines-between-class-members": ["error", "always"],
+        "max-len": [
+            "error",
+            {
+                "code": 100,
+                "tabWidth": 4
+            }
+        ],
+        "operator-linebreak": [
+            "error",
+            "after"
+        ],
+        "lines-between-class-members": [
+            "error",
+            "always"
+        ],
         "object-property-newline": "error",
-        "object-shorthand": ["error", "always", { "avoidQuotes": true }],
+        "object-shorthand": [
+            "error",
+            "always",
+            {
+                "avoidQuotes": true
+            }
+        ],
         "no-magic-numbers": "warn",
         "prefer-const": "error",
         "no-const-assign": "error",
         "arrow-body-style": "error",
         "prefer-arrow-callback": "error",
-        "arrow-parens": ["error", "as-needed"],
+        "arrow-parens": [
+            "error",
+            "as-needed"
+        ],
         "prefer-template": "error",
-        "curly": ["error", "all"],
+        "curly": [
+            "error",
+            "all"
+        ],
         "max-lines-per-function": [
             "warn",
             {
@@ -65,54 +92,153 @@
         "filenames/match-exported": "warn",
         "new-cap": "warn",
         "linebreak-style": "off",
-        "object-curly-spacing": ["error", "always"],
-        "object-curly-newline": ["error", {
-            "ObjectExpression": { "multiline": true, "minProperties": 2 },
-            "ObjectPattern": { "multiline": true, "consistent": false, "minProperties": 2 },
-            "ImportDeclaration": "never",
-            "ExportDeclaration": { "multiline": true, "minProperties": 3 }
-        }],
-        "indent": ["error", 4, {
-            "MemberExpression": 0
-        }],
-        "no-console": "off",
-        "padding-line-between-statements": ["error",
-            // Always require blank lines after directive (like 'use-strict'), except between directives
-            {"blankLine": "always", "prev": "directive", "next": "*"},
-            {"blankLine": "any",    "prev": "directive", "next": "directive"},
-            // Always require blank lines after import, except between imports
-            {"blankLine": "always", "prev": "import", "next": "*"},
-            {"blankLine": "any",    "prev": "import", "next": "import"},
-            // Always require blank lines before and after every sequence of variable declarations and export
-            {"blankLine": "always", "prev": "*", "next": ["const", "let", "var", "export"]},
-            {"blankLine": "always", "prev": ["const", "let", "var", "export"], "next": "*"},
-            {"blankLine": "any",    "prev": ["const", "let", "var", "export"], "next": ["const", "let", "var", "export"]},
-            // Always require blank lines before and after class declaration, if, do/while, switch, try
-            {"blankLine": "always", "prev": "*", "next": ["if", "class", "for", "do", "while", "switch", "try"]},
-            {"blankLine": "always", "prev": ["if", "class", "for", "do", "while", "switch", "try"], "next": "*"},
-            // Always require blank lines before return statements
-            {"blankLine": "always", "prev": "*", "next": "return"},
-            { "blankLine": "always", "prev": "block-like", "next": "*" }
+        "object-curly-spacing": [
+            "error",
+            "always"
         ],
-        "padded-blocks": ["error", "never"],
+        "object-curly-newline": [
+            "error",
+            {
+                "ObjectExpression": {
+                    "multiline": true,
+                    "minProperties": 2
+                },
+                "ObjectPattern": {
+                    "multiline": true,
+                    "consistent": false,
+                    "minProperties": 2
+                },
+                "ImportDeclaration": "never",
+                "ExportDeclaration": {
+                    "multiline": true,
+                    "minProperties": 3
+                }
+            }
+        ],
+        "no-console": "off",
+        "padding-line-between-statements": [
+            "error",
+            // Always require blank lines after directive (like 'use-strict'), except between directives
+            {
+                "blankLine": "always",
+                "prev": "directive",
+                "next": "*"
+            },
+            {
+                "blankLine": "any",
+                "prev": "directive",
+                "next": "directive"
+            },
+            // Always require blank lines after import, except between imports
+            {
+                "blankLine": "always",
+                "prev": "import",
+                "next": "*"
+            },
+            {
+                "blankLine": "any",
+                "prev": "import",
+                "next": "import"
+            },
+            // Always require blank lines before and after every sequence of variable declarations and export
+            {
+                "blankLine": "always",
+                "prev": "*",
+                "next": [
+                    "const",
+                    "let",
+                    "var",
+                    "export"
+                ]
+            },
+            {
+                "blankLine": "always",
+                "prev": [
+                    "const",
+                    "let",
+                    "var",
+                    "export"
+                ],
+                "next": "*"
+            },
+            {
+                "blankLine": "any",
+                "prev": [
+                    "const",
+                    "let",
+                    "var",
+                    "export"
+                ],
+                "next": [
+                    "const",
+                    "let",
+                    "var",
+                    "export"
+                ]
+            },
+            // Always require blank lines before and after class declaration, if, do/while, switch, try
+            {
+                "blankLine": "always",
+                "prev": "*",
+                "next": [
+                    "if",
+                    "class",
+                    "for",
+                    "do",
+                    "while",
+                    "switch",
+                    "try"
+                ]
+            },
+            {
+                "blankLine": "always",
+                "prev": [
+                    "if",
+                    "class",
+                    "for",
+                    "do",
+                    "while",
+                    "switch",
+                    "try"
+                ],
+                "next": "*"
+            },
+            // Always require blank lines before return statements
+            {
+                "blankLine": "always",
+                "prev": "*",
+                "next": "return"
+            },
+            {
+                "blankLine": "always",
+                "prev": "block-like",
+                "next": "*"
+            }
+        ],
+        "padded-blocks": [
+            "error",
+            "never"
+        ],
         "no-unused-vars": "off",
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
         "unused-imports/no-unused-imports": "error",
         "import/no-unresolved": [
-            2, 
-            { "caseSensitive": false }
+            2,
+            {
+                "caseSensitive": false
+            }
         ],
         "import/extensions": [
             "off",
             "ignorePackages",
             {
-              "js": "never",
-              "jsx": "never",
-              "ts": "never",
-              "tsx": "never"
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
             }
-         ],
+        ],
         "unused-imports/no-unused-vars": [
             "error",
             {
@@ -127,7 +253,10 @@
         "import/default": "error",
         "import/export": "error",
         "import/no-commonjs": "off",
-        "comma-dangle": ["error", "never"],
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
         "getter-return": "error",
         "no-dupe-class-members": "error",
         "no-empty-pattern": "error",
@@ -139,7 +268,10 @@
         "no-undef": "error",
         "no-useless-backreference": "error",
         "no-useless-escape": "error",
-        "no-mixed-spaces-and-tabs": ["error", "smart-tabs"]
+        "no-mixed-spaces-and-tabs": [
+            "error",
+            "smart-tabs"
+        ]
     },
     "overrides": [
         {
@@ -159,7 +291,7 @@
                     "off"
                 ],
                 "no-magic-numbers": [
-                	"off"
+                    "off"
                 ]
             }
         }
