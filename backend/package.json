@@ -6,8 +6,9 @@
         "test": "jest --coverage --changedSince=master --coverageThreshold='{\"global\":{\"statements\":\"50\",\"branches\":\"50\",\"functions\":\"50\",\"lines\":\"50\"}}'",
         "db:create": "npx sequelize db:create || exit 0",
         "db:migrate": "npx sequelize db:migrate",
+        "db:seed": "npx sequelize db:seed:all",
         "db:up": "npm run db:create && npm run db:migrate",
-        "start": "npm run db:up && nodemon -L --exec 'node --experimental-specifier-resolution=node' ./src/bin/www"
+        "start": "npm run db:up && npm run db:seed && nodemon -L --exec 'node --experimental-specifier-resolution=node' ./src/bin/www"
     },
     "type": "module",
     "dependencies": {
