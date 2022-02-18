@@ -50,6 +50,12 @@
   text-align: center;
 }
 
+a.link {
+    color: #0070f3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
 .description {
   margin: 4rem 0;
   line-height: 1.5;
@@ -104,8 +110,7 @@
 }
 
 .logo {
-  height: 1em;
-  margin-left: 0.5rem;
+  height: 3em;
 }
 
 @media (max-width: 600px) {
