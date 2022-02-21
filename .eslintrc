@@ -45,7 +45,7 @@
         ],
         "no-var": "error",
         "max-len": ["warn", {
-            "code": 80,
+            "code": 100,
             "tabWidth": 4
         }],
         "operator-linebreak": ["error", "after"],

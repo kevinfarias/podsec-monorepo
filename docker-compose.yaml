@@ -18,12 +18,12 @@ services:
             context: ./backend
             dockerfile: Dockerfile
         container_name: backend
-        entrypoint: dockerize -wait tcp://db:5432 -timeout 20s docker-entrypoint.sh
+        entrypoint: dockerize -wait tcp://db:5432 -wait tcp://redis:6379 -timeout 20s docker-entrypoint.sh
         command: npm run start
         networks: 
             - app-network
         ports:
-          - "3000:3000"
+            - "3000:3000"
         volumes: 
             - ./backend:/usr/src/app
             - /usr/src/app/node_modules
@@ -40,7 +40,7 @@ services:
         networks: 
             - app-network
         ports:
-          - "80:80"
+            - "80:80"
         volumes: 
             - ./frontend/website:/usr/src/app
             - /usr/src/app/node_modules
@@ -57,13 +57,20 @@ services:
         networks: 
             - app-network
         ports:
-          - "8080:8080"
+            - "8080:8080"
         volumes: 
             - ./frontend/admin:/usr/src/app
             - /usr/src/app/node_modules
         tty: true
         depends_on: 
             - frontend-site
+    
+    redis:
+        image: "redis:alpine"
+        networks: 
+            - app-network
+        ports:
+            - "6379:6379"
 networks: 
   app-network:
     driver: bridge
