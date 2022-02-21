@@ -7,14 +7,13 @@ module.exports = {
         const rowsInDatabase = 
             await queryInterface.sequelize.query(rawQuery, typeSelect);
 
-        if (rowsInDatabase.length === 0) {
+        if (!rowsInDatabase.length) {
             require('dotenv/config');
 
             const bcrypt = require('bcrypt');
             const salt = process.env.BCRYPT_SALT;
             const numberOfRounds = 15;
-
-            const password = `pietra${salt}`;
+            const password = `pswd${salt}`;
             const hashedPassword = bcrypt.hashSync(password, numberOfRounds);
 
             await queryInterface.bulkInsert('usuarios', [
@@ -23,9 +22,9 @@ module.exports = {
                     usuario: 'administrador',
                     senha: hashedPassword,
                     email: 'administrador@teinformatech.com',
-                    situacao: '1',
-                    datacriacao: '2022-02-17 22:12:09',
-                    recebernewsletter: '0',
+                    situacao: 1,
+                    datacriacao: new Date(Date.now()).toISOString(),
+                    recebernewsletter: 0,
                     nivelacesso: 1
                 }
             ]);

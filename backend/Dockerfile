@@ -9,7 +9,11 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
     && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-COPY package.json ./
+RUN chown root:root -R /usr/src/app && chmod 775 -R /usr/src/app
+
+RUN chown root:root -R /root/.npm && chmod 775 -R /root/.npm
+
+COPY package*.json .
 
 RUN npm install
 
