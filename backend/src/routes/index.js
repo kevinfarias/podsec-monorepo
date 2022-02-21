@@ -1,11 +1,13 @@
 import express from 'express';
 import * as indexController from '../controllers/indexController';
+import authRouter from './authRouter';
 import newsletterRouter from './newsletterRouter';
 
 // eslint-disable-next-line new-cap
 const routes = express.Router();
 
 routes.get('/', indexController.homePage);
+routes.use('/auth', authRouter);
 routes.use('/newsletter', newsletterRouter);
 
 // NIVEIS DO REST:
@@ -18,10 +20,6 @@ routes.use('/newsletter', newsletterRouter);
 // POST /products -> insere um novo registro
 // PUT /products/1 -> atualiza um registro
 // DELETE /products/1 -> deleta um registro
-// GET /producots/1 -> traz detalhes de um registro
-
-//// TESTES UNITÁRIOS: voce testa a menor parte possivel do teu código
-//// TESTES INTEGRAÇÃO: voce testa mais tecnologias
-//// TESTES END-TO-END: (futuro)
+// GET /products/1 -> traz detalhes de um registro
 
 export default routes;
