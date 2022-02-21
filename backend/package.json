@@ -7,11 +7,12 @@
         "db:create": "npx sequelize db:create || exit 0",
         "db:migrate": "npx sequelize db:migrate",
         "db:seed": "npx sequelize db:seed:all",
-        "db:up": "npm run db:create && npm run db:migrate",
-        "start": "npm run db:up && npm run db:seed && nodemon -L --exec 'node --experimental-specifier-resolution=node' ./src/bin/www"
+        "db:up": "npm run db:create && npm run db:migrate && npm run db:seed",
+        "start": "npm run db:up && nodemon -L --exec 'node --experimental-specifier-resolution=node' ./src/bin/www"
     },
     "type": "module",
     "dependencies": {
+        "bcrypt": "^5.0.1",
         "cookie-parser": "~1.4.4",
         "debug": "~2.6.9",
         "dotenv": "^16.0.0",
