@@ -44,21 +44,12 @@
             "always"
         ],
         "no-var": "error",
-        "max-len": [
-            "error",
-            {
-                "code": 100,
-                "tabWidth": 4
-            }
-        ],
-        "operator-linebreak": [
-            "error",
-            "after"
-        ],
-        "lines-between-class-members": [
-            "error",
-            "always"
-        ],
+        "max-len": ["warn", {
+            "code": 100,
+            "tabWidth": 4
+        }],
+        "operator-linebreak": ["error", "after"],
+        "lines-between-class-members": ["error", "always"],
         "object-property-newline": "error",
         "object-shorthand": [
             "error",
@@ -268,10 +259,9 @@
         "no-undef": "error",
         "no-useless-backreference": "error",
         "no-useless-escape": "error",
-        "no-mixed-spaces-and-tabs": [
-            "error",
-            "smart-tabs"
-        ]
+        "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     },
     "overrides": [
         {
