@@ -2,11 +2,12 @@
 
 module.exports = {
     async up(queryInterface, _Sequelize) {
-        const rawQuery = 'select * from situacoes';
+        const rawQuery = 'select pa.* from situacoes pa';
         const typeSelect = { type: _Sequelize.QueryTypes.SELECT };
-        const rowsInDatabase = await queryInterface.sequelize.query(rawQuery, typeSelect);
+        const rowsInDatabase = 
+            await queryInterface.sequelize.query(rawQuery, typeSelect);
 
-        if (rowsInDatabase.length === 0) {
+        if (rowsInDatabase.length === 0) { 
             await queryInterface.bulkInsert('situacoes', [
                 { descricao: 'criado' },
                 { descricao: 'publicado' },
