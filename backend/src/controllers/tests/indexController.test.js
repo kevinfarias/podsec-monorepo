@@ -3,7 +3,7 @@ import { mockRequest, mockResponse } from '../../utils/mockTest';
 import { homePage } from '../indexController';
 
 describe('Testando indexController', () => {
-    test('retornar 200 com o texto: hello world', async () => {
+    test('retornar 200 com o texto: hello world coming from backend', async () => {
         const req = mockRequest();
 
         /*
@@ -19,6 +19,6 @@ describe('Testando indexController', () => {
             Em outros cenários onde não serão usado mock, devemos usar somente: "toBe"
         */
         expect(res.status).toBeCalledWith(200);
-        expect(res.send).toBeCalledWith('hello world');
+        expect(res.send).toBeCalledWith({ content: 'hello world coming from backend' });
     });
 });

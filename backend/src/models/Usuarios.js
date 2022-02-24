@@ -36,6 +36,10 @@ module.exports = (sequelize, DataTypes) => {
         nivelacesso: {
             type: DataTypes.INTEGER,
             allowNull: false
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
     });
 
@@ -44,13 +48,15 @@ module.exports = (sequelize, DataTypes) => {
         
         const secondsByMinute = 60;
         const totalMinutes = 5;
-        const expires = secondsByMinute * totalMinutes;
+        const oneMilisecond = 1000;
+        const expires = secondsByMinute * totalMinutes * oneMilisecond;
 
         const token = jwt.sign({ 
             id: this.id,
             nome: this.nomecompleto,
             nivelacesso: this.nivelacesso,
-            usuario: this.usuario
+            usuario: this.usuario,
+            email: this.email
         }, process.env.JWT_SECRET, { expiresIn: expires });
 
         return {
@@ -67,8 +73,6 @@ module.exports = (sequelize, DataTypes) => {
         const salt = process.env.BCRYPT_SALT;
         const passwordWithSalt = `${password}${salt}`;
         const comparation = await bcrypt.compare(passwordWithSalt, this.senha);
-
-        console.error('comparation', comparation);
 
         return password && this.senha && comparation;
     };

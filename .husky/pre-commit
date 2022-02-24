@@ -2,5 +2,7 @@
 . "$(dirname "$0")/_/husky.sh"
 
 npm run lint
-npm run backend:test
-npm run frontend:test
+docker-compose exec -T backend npm run test
+docker-compose exec -T frontend-site npm run test
+docker-compose exec -T frontend-admin npm run test
+echo 'ooh pietra'
