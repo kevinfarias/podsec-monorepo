@@ -3,7 +3,8 @@ import jwt from 'jsonwebtoken';
 import db from '../models/index';
 
 export const authMiddleware = (req, res, next) => {
-    const tokenParts = (req.headers['authentication'] || '').split(' ');
+    const tokenParts = 
+        (req.headers['authentication'] || req.headers['Authentication'] || '').split(' ');
 
     const token = tokenParts[1];
     
@@ -24,7 +25,7 @@ export const authMiddleware = (req, res, next) => {
         
         // se tudo estiver ok, salva no request para uso posterior
         req.usuarioId = decoded.id;
-        req.usuario = await db.Usuarios.findOne({ id: decoded.id });
+        req.usuario = await db.Usuarios.findOne({ where: { id: decoded.id } });
         
         next();
     });

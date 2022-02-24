@@ -3,7 +3,7 @@ import Joi from 'joi';
 import db from '../models/index.js';
 
 export const get = async (req, res) => {
-    const dados = await db.Usuarios.findOne({ id: req.usuario.id });
+    const dados = await db.Usuarios.findOne({ where: { id: req.usuario.id } });
 
     return res.status(StatusCodes.OK).send(dados);
 };

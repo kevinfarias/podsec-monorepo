@@ -1,12 +1,13 @@
 import express from 'express';
 import * as indexController from '../controllers/indexController';
+import { authMiddleware } from '../middlewares/authMiddleware';
 import authRouter from './authRouter';
 import newsletterRouter from './newsletterRouter';
 
 // eslint-disable-next-line new-cap
 const routes = express.Router();
 
-routes.get('/', indexController.homePage);
+routes.get('/', authMiddleware, indexController.homePage);
 routes.use('/auth', authRouter);
 routes.use('/newsletter', newsletterRouter);
 
