@@ -4,10 +4,11 @@
         "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix",
         "prepare": "husky install || echo 0",
         "backend:test": "cd ./backend && npm run test",
-        "frontend:test": "echo \"No frontend test available\""
+        "frontend:test": "cd ./frontend/admin && npm run test"
     },
     "type": "module",
     "devDependencies": {
+        "cypress": "^9.5.0",
         "eslint": "^8.8.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-clean-code": "^0.1.12",
