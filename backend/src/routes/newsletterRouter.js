@@ -4,7 +4,10 @@ import * as newsletterController from '../controllers/newsletterController';
 // eslint-disable-next-line new-cap
 const newsletterRouter = express.Router();
 
-newsletterRouter.get('/', newsletterController.get);
+newsletterRouter.get('/', newsletterController.getAll);
+newsletterRouter.post('/', newsletterController.post);
+newsletterRouter.put('/:id/', newsletterController.put);
+newsletterRouter.get('/:id/', newsletterController.getById);
 
 /* 
     TODO: finalizar demais métodos http:
