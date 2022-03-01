@@ -9,6 +9,7 @@ newsletterRouter.post('/', newsletterController.post);
 newsletterRouter.put('/:id/', newsletterController.put);
 newsletterRouter.get('/:id/', newsletterController.getById);
 
+
 /* 
     TODO: finalizar demais métodos http:
 

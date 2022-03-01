@@ -2,6 +2,7 @@ module.exports = (sequelize, DataTypes) => {
     const NewsletterModelos = sequelize.define('newsletter_modelos', {
         id: {
             type: DataTypes.INTEGER,
+            autoIncrement: true,
             allowNull: true,
             primaryKey: true
         },

@@ -16,8 +16,7 @@ export const post = async (req, res) => {
     // TODO: validar se ja existe titulo cadastrado
 
     try {
-        const nextId = (await db.NewsletterModelos.max('id') || 0) + 1;
-        const result = await db.NewsletterModelos.create({ ...rowData, id: nextId });
+        const result = await db.NewsletterModelos.create({ ...rowData });
         return res.json(result);
     } catch (err) {
         return res.status(StatusCodes.BAD_GATEWAY).send('Não foi possivel inserir registro.');
@@ -28,18 +27,24 @@ export const put = ('/:id', async (req, res) => {
 
     const { id } = req.params;
 
-    if (!id)
-        return res.status(400).send('Parametro Invalido.');
-
-    const rowData = req.body;
-
     try {
-        await db.NewsletterModelos.update({ ...rowData }, {
+        const rowData = await db.NewsletterModelos.findOne({
             where: {
                 id: id,
-            },
+            }
         })
-        return res.status(StatusCodes.OK).send(rowData);
+
+        if (rowData.id || 0) {
+
+            const rowData = req.body;
+
+            await db.NewsletterModelos.update({ ...rowData }, {
+                where: {
+                    id: id,
+                },
+            })
+            return res.status(StatusCodes.OK).send(rowData);
+        }
 
     } catch (err) {
         return res.status(StatusCodes.BAD_GATEWAY).send('Não foi possivel inserir registro.');
@@ -49,20 +54,16 @@ export const put = ('/:id', async (req, res) => {
 export const getById = ('/:id', async (req, res) => {
 
     const { id } = req.params;
-
-    if (!id)
-        return res.status(400).send('Parametro Invalido.');
-
     try {
-
         const rowData = await db.NewsletterModelos.findOne({
             where: {
                 id: id,
             }
         })
-        return res.status(StatusCodes.OK).send(rowData);
-
+        if (rowData.id || 0) {
+            return res.status(StatusCodes.OK).send(rowData);
+        }
     } catch (err) {
-        return res.status(StatusCodes.BAD_GATEWAY).send('Não foi possivel inserir registro.');
+        return res.status(StatusCodes.BAD_REQUEST).send('Não foi possivel econtrar um registro.');
     }
 });
