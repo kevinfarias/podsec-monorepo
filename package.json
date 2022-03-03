@@ -4,10 +4,11 @@
         "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix",
         "prepare": "husky install || echo 0",
         "backend:test": "cd ./backend && npm run test",
-        "frontend:test": "echo \"No frontend test available\""
+        "frontend:test": "cd ./frontend/admin && npm run test"
     },
     "type": "module",
     "devDependencies": {
+        "cypress": "^9.5.0",
         "eslint": "^8.8.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-clean-code": "^0.1.12",
@@ -19,9 +20,9 @@
         "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-react": "^7.28.0",
         "eslint-plugin-unused-imports": "^2.0.0",
+        "http-status-codes": "^2.2.0",
         "husky": "^7.0.4",
         "jest": "^27.4.7",
-        "http-status-codes": "^2.2.0",
         "lint-staged": "^12.3.3",
         "prettier": "^2.5.1"
     }
