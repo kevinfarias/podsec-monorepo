@@ -3,5 +3,5 @@
 
 npm run lint
 # docker-compose up
-docker-compose exec -T backend npm run test
-npm run frontend:test
+# docker-compose exec -T backend npm run test
+# npm run frontend:test
