@@ -19,6 +19,6 @@ describe('Testando indexController', () => {
             Em outros cenários onde não serão usado mock, devemos usar somente: "toBe"
         */
         expect(res.status).toBeCalledWith(200);
-        expect(res.send).toBeCalledWith('hello world');
+        expect(res.send).toBeCalledWith('hello world coming from backend');
     });
 });

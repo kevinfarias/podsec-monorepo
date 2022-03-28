@@ -1,4 +1,4 @@
-import { getStatusCode, StatusCodes } from 'http-status-codes';
+import { StatusCodes } from 'http-status-codes';
 import db from '../models/index.js';
 
 /// implementar crud
@@ -16,54 +16,42 @@ export const post = async (req, res) => {
     // TODO: validar se ja existe titulo cadastrado
 
     try {
-        const result = await db.NewsletterModelos.create({ ...rowData });
+        const result = await db.NewsletterModelos.create(rowData);
+
         return res.json(result);
     } catch (err) {
         return res.status(StatusCodes.BAD_GATEWAY).send('Não foi possivel inserir registro.');
     }
 };
 
-export const put = ('/:id', async (req, res) => {
-
+export const put = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const rowData = await db.NewsletterModelos.findOne({
-            where: {
-                id: id,
-            }
-        })
+        const rowData = await db.NewsletterModelos.findOne({ where: { id } });
 
-        if (rowData.id || 0) {
-
+        if (rowData.id) {
             const rowData = req.body;
 
-            await db.NewsletterModelos.update({ ...rowData }, {
-                where: {
-                    id: id,
-                },
-            })
+            await db.NewsletterModelos.update(rowData, { where: { id } });
+
             return res.status(StatusCodes.OK).send(rowData);
         }
-
     } catch (err) {
         return res.status(StatusCodes.BAD_GATEWAY).send('Não foi possivel inserir registro.');
     }
-});
+};
 
-export const getById = ('/:id', async (req, res) => {
-
+export const getById = async (req, res) => {
     const { id } = req.params;
+
     try {
-        const rowData = await db.NewsletterModelos.findOne({
-            where: {
-                id: id,
-            }
-        })
-        if (rowData.id || 0) {
+        const rowData = await db.NewsletterModelos.findOne({ where: { id } });
+
+        if (rowData.id) {
             return res.status(StatusCodes.OK).send(rowData);
         }
     } catch (err) {
-        return res.status(StatusCodes.BAD_REQUEST).send('Não foi possivel econtrar um registro.');
+        return res.status(StatusCodes.BAD_REQUEST).send('Não foi possivel encontrar um registro.');
     }
-});
+};
