@@ -1,0 +1,23 @@
+.fallback {
+    margin-top: 100px;
+    margin-bottom: 250px;
+    text-align: center;
+
+    :global(.icon) {
+        font-size: 6em;
+        color: #2D525D;
+    }
+
+    :global(*) {
+        margin-top: 20px;
+    }
+
+    :global(.messageKeepIn > *) {
+        line-height: 2em !important;
+    }
+
+    :global(.rocketIcon) {
+        font-size: 3em;
+        color: #65AEC5;
+    }
+}

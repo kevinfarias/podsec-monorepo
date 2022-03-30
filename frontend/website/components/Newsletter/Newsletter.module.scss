@@ -1,0 +1,44 @@
+.newsletter {
+    background: #C4C4C4;
+    padding: 80px;
+    text-align: center;
+
+    :global(.jumbotron) {
+        max-width: 800px;
+        display: inline-block;
+    }
+
+    :global(.title) {
+        color: #FFFFFF;
+        font-weight: bold;
+        width: 100%;
+        display: inline-block;
+        text-align: center !important;
+    }
+
+    :global(.description) {
+        display: inline-block;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+
+    :global(.signUp) {
+        margin-top: 40px;
+        width: 100%;
+        align-items: center;
+
+        :global(button) {
+            padding-left: 30px;
+            padding-right: 30px;
+            font-size: 0.75em;
+            line-height: 1.8em;
+            font-weight: bold;
+            letter-spacing: 0.15em;
+        }
+    }
+
+    :global(.icon) {
+        font-size: 2.5em;
+        cursor: pointer;
+    }
+}

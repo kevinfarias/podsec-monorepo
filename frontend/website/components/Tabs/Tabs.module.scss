@@ -1,0 +1,29 @@
+.tabs {
+    :global(.nav-item) {        
+        background: #C3C3C3;
+        text-align: center;
+        line-height: 50px;
+        font-size: 1.15em;
+        font-weight: bold;
+        color: #000;
+        cursor: pointer;
+    }
+
+    :global(.nav-item .nav-link) {
+        text-decoration: none;
+        color: #000;
+        opacity: 0.8;
+    }
+
+    :global(.nav-link.active) {
+        opacity: 1 !important;
+    }
+
+    :global(.leftBorder), :global(.leftBorder > *) {
+        border-top-left-radius: 70px;
+    }
+
+    :global(.rightBorder), :global(.rightBorder > *) {
+        border-top-right-radius: 70px;
+    }
+}

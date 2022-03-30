@@ -1,0 +1,29 @@
+#navbarPrincipal {
+    background: white !important;
+    min-height: 106px;
+
+    :global(.nav-item) {
+        font-style: normal;
+        font-weight: 900 !important;
+        font-size: 14px;
+        line-height: 23px;
+        text-align: center;
+        color: #000000;
+        margin-right: 20px;
+    }
+
+    :global(.userDetails) {
+        font-size: 12px;
+        text-align: right;
+    }
+
+    :global(.loginUserIcon) {
+        font-size: 40px;
+    }
+}
+
+.floatRight {
+    flex-shrink: 0;
+    flex-grow: 1;
+    flex-direction: row-reverse !important;
+}
