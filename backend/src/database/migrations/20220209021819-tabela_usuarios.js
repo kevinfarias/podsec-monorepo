@@ -1,5 +1,6 @@
 'use strict';
 
+
 module.exports = {
     async up(queryInterface, _Sequelize) {
         await queryInterface.sequelize.query(`CREATE TABLE usuarios (
