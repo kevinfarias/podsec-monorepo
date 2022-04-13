@@ -1,11 +1,24 @@
 import styles from './PodcastCard.module.scss';
 import { AiOutlineComment, AiOutlineHeart, AiFillPlayCircle } from 'react-icons/ai';
 import dayjs from '../../utils/date';
+import { useMediaPlayer } from '../../contexts/MediaPlayerContext';
 
 export default function PodcastCard({ data }) {
-    const { title, description, image, commentsAmount, createdAt } = data;
+    const { titulo: title, assunto: description, image, commentsAmount, createdAt, url } = data;
+    
+    const [_, setMusicState] = useMediaPlayer();
 
     const timeFromPost = dayjs(createdAt).toNow(true);
+
+    function addPodcastToPlay(name, source, cover = "") {
+        setMusicState([
+            {
+                name,
+                musicSrc: source,
+                cover
+            }
+        ])
+    }
 
     return (<div className={styles.card + ' card'}>
         <div className="card-body row">
@@ -29,7 +42,7 @@ export default function PodcastCard({ data }) {
                     </button>
                     </div>
                     <div className="col-6">
-                        <button onClick={() => alert(`episódio iniciando em 3..2..1`)} className="playButton btn btn-sm btn-outline-info">
+                        <button onClick={() => addPodcastToPlay(title, url, image)} data={url} className="playButton btn btn-sm btn-outline-info">
                             OUVIR EPISÓDIO{'  '}
                             <AiFillPlayCircle />
                         </button>

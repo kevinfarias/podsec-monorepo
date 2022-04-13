@@ -1,0 +1,33 @@
+<h1>Show Noticias</h1>
+
+<ul>
+
+  <li>
+    <strong>Titulo:</strong>
+    <%= @noticias.titulo %>
+  </li>
+
+  <li>
+    <strong>Assunto:</strong>
+    <%= @noticias.assunto %>
+  </li>
+
+  <li>
+    <strong>Assuntocomplemento:</strong>
+    <%= @noticias.assuntocomplemento %>
+  </li>
+
+  <li>
+    <strong>Url:</strong>
+    <%= @noticias.url %>
+  </li>
+
+  <li>
+    <strong>Tags:</strong>
+    <%= @noticias.tags %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.noticias_path(@conn, :edit, @noticias) %></span> |
+<span><%= link "Back", to: Routes.noticias_path(@conn, :index) %></span>

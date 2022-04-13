@@ -1,0 +1,28 @@
+<h1>Show Podcast</h1>
+
+<ul>
+
+  <li>
+    <strong>Titulo:</strong>
+    <%= @podcast.titulo %>
+  </li>
+
+  <li>
+    <strong>Assunto:</strong>
+    <%= @podcast.assunto %>
+  </li>
+
+  <li>
+    <strong>Url:</strong>
+    <%= @podcast.url %>
+  </li>
+
+  <li>
+    <strong>Tags:</strong>
+    <%= @podcast.tags %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.podcast_path(@conn, :edit, @podcast) %></span> |
+<span><%= link "Back", to: Routes.podcast_path(@conn, :index) %></span>
