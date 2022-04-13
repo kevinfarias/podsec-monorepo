@@ -27,3 +27,7 @@ hr.vertical {
     margin: 0px;
     margin-top: 15px;
 }
+
+.audio-main .progress-bar {
+    background-color: transparent !important;
+}

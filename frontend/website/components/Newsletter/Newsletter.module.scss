@@ -2,10 +2,12 @@
     background: #C4C4C4;
     padding: 80px;
     text-align: center;
+    
 
     :global(.jumbotron) {
         max-width: 800px;
         display: inline-block;
+        padding-bottom: 40px !important;
     }
 
     :global(.title) {

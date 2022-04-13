@@ -1,0 +1,34 @@
+<h1>Listing Noticias</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Assunto</th>
+      <th>Assuntocomplemento</th>
+      <th>Url</th>
+      <th>Tags</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for noticias <- @noticias do %>
+    <tr>
+      <td><%= noticias.titulo %></td>
+      <td><%= noticias.assunto %></td>
+      <td><%= noticias.assuntocomplemento %></td>
+      <td><%= noticias.url %></td>
+      <td><%= noticias.tags %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.noticias_path(@conn, :show, noticias) %></span>
+        <span><%= link "Edit", to: Routes.noticias_path(@conn, :edit, noticias) %></span>
+        <span><%= link "Delete", to: Routes.noticias_path(@conn, :delete, noticias), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Noticias", to: Routes.noticias_path(@conn, :new) %></span>

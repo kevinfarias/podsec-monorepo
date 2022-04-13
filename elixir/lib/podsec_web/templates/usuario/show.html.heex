@@ -1,0 +1,38 @@
+<h1>Show Usuario</h1>
+
+<ul>
+
+  <li>
+    <strong>Nomecompleto:</strong>
+    <%= @usuario.nomecompleto %>
+  </li>
+
+  <li>
+    <strong>Usuario:</strong>
+    <%= @usuario.usuario %>
+  </li>
+
+  <li>
+    <strong>Senha:</strong>
+    <%= @usuario.senha %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @usuario.email %>
+  </li>
+
+  <li>
+    <strong>Ativo:</strong>
+    <%= @usuario.ativo %>
+  </li>
+
+  <li>
+    <strong>Recebenewsletter:</strong>
+    <%= @usuario.recebenewsletter %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.usuario_path(@conn, :edit, @usuario) %></span> |
+<span><%= link "Back", to: Routes.usuario_path(@conn, :index) %></span>
