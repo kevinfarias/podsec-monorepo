@@ -1,28 +1,19 @@
-# BACKEND TeInforma Tech
+# Podsec
 
-## 1. Fluxo criação migrations
-1. Criar migration: `npx sequelize migration:create --name nome-da-migration`
-2. Exemplo de código de migration:
-```
-module.exports = {
-    async up (queryInterface) {
-        await queryInterface.sequelize.query(`CREATE TABLE teste (
-        id serial not null primary key,
-        name varchar(100)
-     )`);
-    },
+To start your Phoenix server:
 
-    async down (queryInterface) {
-        await queryInterface.sequelize.query('DROP TABLE teste;');
-    }
-};
-```
-3. Rodar migration (no nivel raiz do monorepo): `docker-compose exec backend npm run db:migrate`
+  * Install dependencies with `mix deps.get`
+  * Create and migrate your database with `mix ecto.setup`
+  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
 
-## 2. Fluxo criação testes unitários/integração:
-1. Para cada arquivo criado, na mesma estrutura deve existir uma pasta chamada `tests`
-2. O arquivo deve se chamar `{nomeDoArquivo}.test.js`. Exemplos:
-    - `src/controllers/indexController.js` -> `src/controllers/tests/indexController.test.js`
-    - `src/utils/soma.js` -> `src/utils/tests/soma.test.js`
-3. Os testes podem ser rodados via `npm run test`.
-4. Os testes automaticamente rodam sempre que é enviado um novo commit. Se os testes não passarem, não é possível commitar (se não passar no ESLint, também não).
+Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+
+Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+
+## Learn more
+
+  * Official website: https://www.phoenixframework.org/
+  * Guides: https://hexdocs.pm/phoenix/overview.html
+  * Docs: https://hexdocs.pm/phoenix
+  * Forum: https://elixirforum.com/c/phoenix-forum
+  * Source: https://github.com/phoenixframework/phoenix
