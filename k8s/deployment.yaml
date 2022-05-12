@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+    labels:
+        app: backend
+    name: backend
+spec:
+    replicas: 2
+    selector:
+        matchLabels:
+            app: backend
+    template:
+        metadata:
+            labels:
+                app: backend
+        spec:
+            containers:
+                - image: 509271331284.dkr.ecr.us-east-1.amazonaws.com/teinformatech-backend:latest
+                  imagePullPolicy: IfNotPresent
+                  name: backend

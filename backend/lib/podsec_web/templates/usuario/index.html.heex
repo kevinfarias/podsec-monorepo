@@ -1,0 +1,36 @@
+<h1>Listing Usuarios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nomecompleto</th>
+      <th>Usuario</th>
+      <th>Senha</th>
+      <th>Email</th>
+      <th>Ativo</th>
+      <th>Recebenewsletter</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for usuario <- @usuarios do %>
+    <tr>
+      <td><%= usuario.nomecompleto %></td>
+      <td><%= usuario.usuario %></td>
+      <td><%= usuario.senha %></td>
+      <td><%= usuario.email %></td>
+      <td><%= usuario.ativo %></td>
+      <td><%= usuario.recebenewsletter %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.usuario_path(@conn, :show, usuario) %></span>
+        <span><%= link "Edit", to: Routes.usuario_path(@conn, :edit, usuario) %></span>
+        <span><%= link "Delete", to: Routes.usuario_path(@conn, :delete, usuario), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Usuario", to: Routes.usuario_path(@conn, :new) %></span>
