@@ -4,6 +4,16 @@ defmodule Podsec.Repo.Migrations.CreateUsuariosAuthTables do
   def change do
     execute "CREATE EXTENSION IF NOT EXISTS citext", ""
 
+    create table(:usuarios) do
+        add :nomecompleto, :string, null: false
+        add :usuario, :string, null: false
+        add :email, :string, null: false
+        add :ativo, :boolean, default: false
+        add :recebenewsletter, :boolean, default: true
+        add :nivelacesso, :integer, null: false
+        timestamps()
+    end
+
     alter table(:usuarios) do
       add :hashed_password, :string, null: false
       add :confirmed_at, :naive_datetime

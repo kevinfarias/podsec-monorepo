@@ -41,7 +41,7 @@ Repo.insert!(%NivelAcesso{
 
 alias Podsec.Authentication
 
-Repo.insert(Authentication.register_usuario(
+Authentication.register_usuario(
     %{
         nomecompleto: "administrador",
         usuario: "admin",
@@ -52,4 +52,4 @@ Repo.insert(Authentication.register_usuario(
         nivelacesso: 1,
         password: "AdminAdmin123"
     }
-))
+)

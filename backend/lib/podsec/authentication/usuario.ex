@@ -7,6 +7,11 @@ defmodule Podsec.Authentication.Usuario do
     field :password, :string, virtual: true, redact: true
     field :hashed_password, :string, redact: true
     field :confirmed_at, :naive_datetime
+    field :nomecompleto, :string
+    field :usuario, :string
+    field :ativo, :boolean
+    field :recebenewsletter, :boolean
+    field :nivelacesso, :integer
 
     timestamps()
   end
@@ -30,7 +35,7 @@ defmodule Podsec.Authentication.Usuario do
   """
   def registration_changeset(usuario, attrs, opts \\ []) do
     usuario
-    |> cast(attrs, [:email, :password])
+    |> cast(attrs, [:email, :password, :hashed_password, :confirmed_at, :nomecompleto, :usuario, :ativo, :recebenewsletter, :nivelacesso])
     |> validate_email()
     |> validate_password(opts)
   end
