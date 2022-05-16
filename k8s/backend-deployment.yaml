@@ -1,0 +1,76 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  labels:
+    app: backend
+spec:
+  ports:
+    - port: 80
+  selector:
+    app: backend
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: teinformatech-pv-claim
+  labels:
+    app: backend
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    app: backend
+spec:
+  selector:
+    matchLabels:
+      app: backend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - image: 509271331284.dkr.ecr.us-east-1.amazonaws.com/teinformatech-backend
+        imagePullPolicy: Always
+        name: backend
+        env:
+        - name: PGHOST
+          value: teinformatech-postgresql
+        - name: PGPORT
+          value: "5432"
+        - name: PGUSER
+          valueFrom:
+            secretKeyRef:
+              name: database-access
+              key: user
+        - name: PGPASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: database-access
+              key: password
+        - name: PGDATABASE
+          valueFrom:
+            secretKeyRef:
+              name: database-access
+              key: dbname
+        ports:
+        - containerPort: 4000
+          name: backend
+      volumes:
+      - name: backend-persistent-storage
+        persistentVolumeClaim:
+          claimName: teinformatech-pv-claim
+      imagePullSecrets:
+        - name: regcred

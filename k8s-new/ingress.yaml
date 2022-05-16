@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: backend-ingress
+spec:
+    rules:
+    - http:
+        paths:
+        - path: /api
+          backend:
+            serviceName: backend-svc
+            servicePort: 3000

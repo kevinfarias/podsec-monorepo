@@ -1,0 +1,75 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: teinformatech-postgresql
+  labels:
+    app: backend
+spec:
+  ports:
+    - port: 3306
+  selector:
+    app: backend
+    tier: mysql
+  clusterIP: None
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pgsql-pv-claim
+  labels:
+    app: backend
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: teinformatech-postgresql
+  labels:
+    app: backend
+spec:
+  selector:
+    matchLabels:
+      app: backend
+      tier: pgsql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: backend
+        tier: pgsql
+    spec:
+      containers:
+      - image: postgres:14
+        name: postgres
+        env:
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: database-access
+              key: user
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: database-access
+              key: password
+        - name: POSTGRES_DB
+          valueFrom:
+            secretKeyRef:
+              name: database-access
+              key: dbname
+        ports:
+        - containerPort: 5432
+          name: pgsql
+        volumeMounts:
+        - name: pgsql-persistent-storage
+          mountPath: /var/lib/postgresql
+      volumes:
+      - name: pgsql-persistent-storage
+        persistentVolumeClaim:
+          claimName: pgsql-pv-claim
